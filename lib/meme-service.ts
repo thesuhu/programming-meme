@@ -3,7 +3,7 @@ import path from "path"
 import type { MemeData, Meme } from "./types"
 
 // Path ke direktori data relatif terhadap root project
-const DATA_DIR = path.join(process.cwd(), "data")
+const DATA_DIR = path.join(process.cwd(), "public", "data")
 
 export async function getMemes(): Promise<MemeData> {
   try {

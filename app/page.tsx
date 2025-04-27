@@ -5,8 +5,16 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { ThemeModeScript } from "@/components/theme-mode-script"
 import { Github, Heart } from "lucide-react"
 import Link from "next/link"
+import { getMemes, fallbackMemeData } from "@/lib/meme-service"
 
-export default function Home() {
+export default async function Home() {
+  let data
+  try {
+    data = await getMemes()
+  } catch {
+    data = fallbackMemeData
+  }
+
   return (
     <main className="container mx-auto px-4 py-8">
       <ThemeModeScript />
@@ -38,7 +46,7 @@ export default function Home() {
         </div>
       </div>
       <Suspense fallback={<SearchSkeleton />}>
-        <MemeSearch />
+        <MemeSearch memes={data.memes} directories={data.directories} />
       </Suspense>
     </main>
   )
