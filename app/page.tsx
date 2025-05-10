@@ -19,9 +19,12 @@ export default async function Home() {
     <main className="container mx-auto px-4 py-8">
       <ThemeModeScript />
       <div className="flex justify-between items-start mb-8">
-        <div className="space-y-1">
-          <h1 className="text-2xl font-semibold tracking-tight">Programming Meme</h1>
-          <p className="text-sm text-muted-foreground">Meme about programming from various sources</p>
+        <div className="space-y-1 flex items-center gap-3">
+          <img src="/logo.png" alt="Programming Meme Logo" className="h-10 w-auto" />
+          <div>
+            <h1 className="text-2xl font-semibold tracking-tight">Programming Meme</h1>
+            <p className="text-sm text-muted-foreground">Meme about programming from various sources</p>
+          </div>
         </div>
         <div className="flex items-center gap-2">
           <Link
